@@ -1,0 +1,62 @@
+package br.com.careplus.mev.application.core.usecase;
+
+import br.com.careplus.mev.adapter.in.controller.request.checkIn.DadosCheckInExercicio;
+import br.com.careplus.mev.adapter.in.controller.response.checkIn.DadosDetalhamentoCheckInExercicio;
+import br.com.careplus.mev.application.core.domain.model.CheckInExercicio;
+import br.com.careplus.mev.application.core.validation.interfaces.ValidacoesDeCheckInExercicio;
+import br.com.careplus.mev.application.port.out.CheckInExercicioRepository;
+import br.com.careplus.mev.application.port.out.PacienteRepository;
+import br.com.careplus.mev.exception.type.PacienteNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+@Service
+public class RegistroCheckInExercicioService {
+
+    @Autowired
+    private CheckInExercicioRepository checkInExercicioRepository;
+
+    @Autowired
+    private PacienteRepository pacienteRepository;
+
+    @Autowired
+    private List<ValidacoesDeCheckInExercicio> validadores;
+
+    public DadosDetalhamentoCheckInExercicio registrar(DadosCheckInExercicio dados) {
+        if (!pacienteRepository.existsById(dados.idPaciente())) {
+            throw new PacienteNotFoundException(dados.idPaciente());
+        }
+
+        String alertas = validadores.stream()
+                .map(v -> v.validar(dados))
+                .filter(Optional::isPresent)
+                .map(Optional::get)
+                .collect(Collectors.collectingAndThen(
+                        Collectors.joining(" | "),
+                        s -> s.isEmpty() ? null : s
+                ));
+
+        var checkIn = new CheckInExercicio(
+                dados.idPaciente(),
+                dados.dataRegistro(),
+                dados.sessoes(),
+                dados.intensidade(),
+                dados.duracaoTotal()
+        );
+        checkInExercicioRepository.save(checkIn);
+
+        return new DadosDetalhamentoCheckInExercicio(
+                checkIn.getId(),
+                checkIn.getPacienteId(),
+                checkIn.getDataRegistro(),
+                checkIn.getSessoes(),
+                checkIn.getIntensidade(),
+                checkIn.getDuracaoTotal(),
+                alertas
+        );
+    }
+}

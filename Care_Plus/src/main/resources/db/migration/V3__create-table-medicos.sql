@@ -1,0 +1,10 @@
+CREATE TABLE medicos (
+    id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    ativo TINYINT DEFAULT 1,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    crm VARCHAR(20) NOT NULL UNIQUE,
+    telefone VARCHAR(20),
+    usuario_id BIGINT NOT NULL,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
