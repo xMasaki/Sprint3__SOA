@@ -81,15 +81,15 @@ PACIENTE - Registra seus próprios check-ins<br><br>
 #### POST /login
 
 **Request:**<br>
-{
-  "login": "admin@careplus.com",
-  "senha": "senha123"
-}
+{<br>
+  "login": "admin@careplus.com",<br>
+  "senha": "senha123"<br>
+}<br>
 
 
 **Response 200 OK:**<br>
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+{<br>
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."<br>
 }<br><br>
 
 
@@ -98,18 +98,18 @@ PACIENTE - Registra seus próprios check-ins<br><br>
 #### POST /usuarios
 
 **Request:**<br>
-{
-  "login": "joao@careplus.com",
-  "senha": "senha123",
-  "perfil": "MEDICO"
-}
+{<br>
+  "login": "joao@careplus.com",<br>
+  "senha": "senha123",<br>
+  "perfil": "MEDICO"<br>
+}<br>
 
 
 **Response 201 Created:**<br>
-{
-  "id": 1,
-  "login": "joao@careplus.com",
-  "perfil": "MEDICO"
+{<br>
+  "id": 1,<br>
+  "login": "joao@careplus.com",<br>
+  "perfil": "MEDICO"<br>
 }<br><br>
 
 
@@ -118,21 +118,21 @@ PACIENTE - Registra seus próprios check-ins<br><br>
 #### POST /medicos
 
 **Request:**<br>
-{
-  "nome": "Dr. João Silva",
-  "email": "dr.joao@careplus.com",
-  "crm": "123456",
-  "telefone": "11999999999",
-  "usuarioId": 1
+{<br>
+  "nome": "Dr. João Silva",<br>
+  "email": "dr.joao@careplus.com",<br>
+  "crm": "123456",<br>
+  "telefone": "11999999999",<br>
+  "usuarioId": 1<br>
 }
 
 **Response 201 Created:**<br>
-{
-  "id": 1,
-  "nome": "Dr. João Silva",
-  "email": "dr.joao@careplus.com",
-  "crm": "123456",
-  "telefone": "11999999999"
+{<br>
+  "id": 1,<br>
+  "nome": "Dr. João Silva",<br>
+  "email": "dr.joao@careplus.com",<br>
+  "crm": "123456",<br>
+  "telefone": "11999999999"<br>
 }<br><br>
 
 
@@ -141,68 +141,68 @@ PACIENTE - Registra seus próprios check-ins<br><br>
 #### POST /checkins/alimentacao
 
 **Request:**<br>
-{
-  "idPaciente": 1,
-  "dataRegistro": "2024-05-08T08:00:00",
-  "refeicoes": 3,
-  "saciedade": "SATISFEITO",
-  "hidratacao": 2.5,
-  "nivelAcucar": "MODERADO"
+{<br>
+  "idPaciente": 1,<br>
+  "dataRegistro": "2024-05-08T08:00:00",<br>
+  "refeicoes": 3,<br>
+  "saciedade": "SATISFEITO",<br>
+  "hidratacao": 2.5,<br>
+  "nivelAcucar": "MODERADO"<br>
 }<br><br>
 
 
 #### POST /checkins/exercicio
 
 **Request:**<br>
-{
-  "idPaciente": 1,
-  "dataRegistro": "2024-05-08T07:00:00",
-  "sessoes": 1,
-  "intensidade": "MODERADA",
-  "duracaoTotal": 45.0
+{<br>
+  "idPaciente": 1,<br>
+  "dataRegistro": "2024-05-08T07:00:00",<br>
+  "sessoes": 1,<br>
+  "intensidade": "MODERADA",<br>
+  "duracaoTotal": 45.0<br>
 }<br><br>
 
 
 #### POST /checkins/sono
 
 **Request:**<br>
-{
-  "idPaciente": 1,
-  "dataRegistro": "2024-05-08T06:00:00",
-  "horasDormidas": 7.5,
-  "qualidade": "BOM",
-  "despertares": 1
+{<br>
+  "idPaciente": 1,<br>
+  "dataRegistro": "2024-05-08T06:00:00",<br>
+  "horasDormidas": 7.5,<br>
+  "qualidade": "BOM",<br>
+  "despertares": 1<br>
 }<br><br>
 
 
 #### POST /checkins/estresse
 
 **Request:**<br>
-{
-  "idPaciente": 1,
-  "dataRegistro": "2024-05-08T18:00:00",
-  "nivelEstresse": "MODERADO"
+{<br>
+  "idPaciente": 1,<br>
+  "dataRegistro": "2024-05-08T18:00:00",<br>
+  "nivelEstresse": "MODERADO"<br>
 }<br><br>
 
 
 #### POST /checkins/social
 
 **Request:**<br>
-{
-  "idPaciente": 1,
-  "dataRegistro": "2024-05-08T19:00:00",
-  "interacaoPositiva": true
+{<br>
+  "idPaciente": 1,<br>
+  "dataRegistro": "2024-05-08T19:00:00",<br>
+  "interacaoPositiva": true<br>
 }<br><br>
 
 
 #### POST /checkins/substancias
 
 **Request:**<br>
-{
-  "idPaciente": 1,
-  "dataRegistro": "2024-05-08T20:00:00",
-  "doses": 1.0,
-  "cigarros": 0
+{<br>
+  "idPaciente": 1,<br>
+  "dataRegistro": "2024-05-08T20:00:00",<br>
+  "doses": 1.0,<br>
+  "cigarros": 0<br>
 }<br><br>
 
 
@@ -211,23 +211,23 @@ PACIENTE - Registra seus próprios check-ins<br><br>
 #### GET /relatorios/{1}?dataInicio=2024-05-01&dataFim=2024-05-31
 
 **Response 200 OK:**<br>
-{
-  "idPaciente": 1,
-  "alimentacao": { "mediaRefeicoes": 3.0, "mediaHidratacao": 2.3 },
-  "exercicio": { "totalSessoes": 10, "mediaIntensidade": "MODERADA" },
-  "sono": { "mediaHoras": 7.2, "qualidadeMedia": "BOM" },
-  "estresse": { "nivelMedio": "MODERADO" },
-  "social": { "percentualInteracoesPositivas": 85.0 },
-  "substancias": { "mediaDoses": 0.5, "mediaCigarros": 0 }
+{<br>
+  "idPaciente": 1,<br>
+  "alimentacao": { "mediaRefeicoes": 3.0, "mediaHidratacao": 2.3 },<br>
+  "exercicio": { "totalSessoes": 10, "mediaIntensidade": "MODERADA" },<br>
+  "sono": { "mediaHoras": 7.2, "qualidadeMedia": "BOM" },<br>
+  "estresse": { "nivelMedio": "MODERADO" },<br>
+  "social": { "percentualInteracoesPositivas": 85.0 },<br>
+  "substancias": { "mediaDoses": 0.5, "mediaCigarros": 0 }<br>
 }<br><br>
 
 
 ### Erros comuns
 
 **Exemplo de erro 400:**<br>
-{
-  "campo": "email",
-  "mensagem": "não deve ser nulo"
+{<br>
+  "campo": "email",<br>
+  "mensagem": "não deve ser nulo"<br>
 }<br><br><br>
 
 
