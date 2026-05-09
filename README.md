@@ -119,8 +119,8 @@ PACIENTE - Registra seus próprios check-ins<br><br>
 
 **Request:**<br>
 {<br>
-  "nome": "Dr. João Silva",<br>
-  "email": "dr.joao@careplus.com",<br>
+  "nome": "João Silva",<br>
+  "email": "joao@careplus.com",<br>
   "crm": "123456",<br>
   "telefone": "11999999999",<br>
   "usuarioId": 1<br>
@@ -129,8 +129,8 @@ PACIENTE - Registra seus próprios check-ins<br><br>
 **Response 201 Created:**<br>
 {<br>
   "id": 1,<br>
-  "nome": "Dr. João Silva",<br>
-  "email": "dr.joao@careplus.com",<br>
+  "nome": "João Silva",<br>
+  "email": "joao@careplus.com",<br>
   "crm": "123456",<br>
   "telefone": "11999999999"<br>
 }<br><br>
