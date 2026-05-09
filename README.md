@@ -3,11 +3,11 @@
 API REST para monitoramento de Mudanças no Estilo de Vida(MEV) de pacientes, permitindo o registro e acompanhamento de check-ins diários de alimentação, exercício, sono, estresse, interação social e uso de substâncias. Projetada para uso por médicos e pacientes.
 
 ## Integrantes do Grupo
-Edson Leonardo Pacheco Navia | RM553737
-Eduardo Mazelli | RM553236
-Joseh Gabriel Trimboli Agra | RM553094
-Lucas Masaki Nagahama | RM553087
-Pedro Henrique de Assunção Lima | RM552746
+Edson Leonardo Pacheco Navia | RM553737<br>
+Eduardo Mazelli | RM553236<br>
+Joseh Gabriel Trimboli Agra | RM553094<br>
+Lucas Masaki Nagahama | RM553087<br>
+Pedro Henrique de Assunção Lima | RM552746<br>
 
 ## Descrição do Projeto
 
@@ -39,13 +39,13 @@ O projeto é uma API desenvolvida com arquitetura hexagonal que centraliza o mon
 
 ### 1. Clonar o repositório
 
-git clone https://github.com/xMasaki/Sprint3__SOA.git
+git clone https://github.com/xMasaki/Sprint3__SOA.git<br><br>
 
 
 ### 2. Configurar o banco de dados
 Crie o schema no MySQL:
 
-CREATE DATABASE mev;
+CREATE DATABASE mev;<br><br>
 
 
 ### 3. Configurar variáveis de ambiente
@@ -55,23 +55,23 @@ spring.datasource.url=jdbc:mysql://localhost/mev <br>
 spring.datasource.username=root<br>
 spring.datasource.password=SUA_SENHA<br>
 
-api.security.token.secret=${JWT_SECRET:12345678}
+api.security.token.secret=${JWT_SECRET:12345678}<br><br>
 
 
 ### 4. Executar a aplicação
 
-A API estará em http://localhost:8080
+A API estará em http://localhost:8080<br><br>
 
 ### 5. Verificar funcionamento
 
 GET http://localhost:8080/health-check
-Resposta: MEV API - OK
+Resposta: MEV API - OK<br><br>
 
 
 ### Perfis de acesso
-ADMIN - Acesso total ao sistema
-MEDICO - Gerencia pacientes e visualiza dados
-PACIENTE - Registra seus próprios check-ins
+ADMIN - Acesso total ao sistema<br>
+MEDICO - Gerencia pacientes e visualiza dados<br>
+PACIENTE - Registra seus próprios check-ins<br><br>
 
 
 ## Exemplos de requisições e respostas
@@ -90,7 +90,7 @@ PACIENTE - Registra seus próprios check-ins
 **Response 200 OK:**<br>
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
-}
+}<br><br>
 
 
 ### Usuários
@@ -110,7 +110,7 @@ PACIENTE - Registra seus próprios check-ins
   "id": 1,
   "login": "joao@careplus.com",
   "perfil": "MEDICO"
-}
+}<br><br>
 
 
 ### Médicos
@@ -133,7 +133,7 @@ PACIENTE - Registra seus próprios check-ins
   "email": "dr.joao@careplus.com",
   "crm": "123456",
   "telefone": "11999999999"
-}
+}<br><br>
 
 
 ### Check-ins
@@ -148,7 +148,7 @@ PACIENTE - Registra seus próprios check-ins
   "saciedade": "SATISFEITO",
   "hidratacao": 2.5,
   "nivelAcucar": "MODERADO"
-}
+}<br><br>
 
 
 #### POST /checkins/exercicio
@@ -160,7 +160,7 @@ PACIENTE - Registra seus próprios check-ins
   "sessoes": 1,
   "intensidade": "MODERADA",
   "duracaoTotal": 45.0
-}
+}<br><br>
 
 
 #### POST /checkins/sono
@@ -172,7 +172,7 @@ PACIENTE - Registra seus próprios check-ins
   "horasDormidas": 7.5,
   "qualidade": "BOM",
   "despertares": 1
-}
+}<br><br>
 
 
 #### POST /checkins/estresse
@@ -182,7 +182,7 @@ PACIENTE - Registra seus próprios check-ins
   "idPaciente": 1,
   "dataRegistro": "2024-05-08T18:00:00",
   "nivelEstresse": "MODERADO"
-}
+}<br><br>
 
 
 #### POST /checkins/social
@@ -192,7 +192,7 @@ PACIENTE - Registra seus próprios check-ins
   "idPaciente": 1,
   "dataRegistro": "2024-05-08T19:00:00",
   "interacaoPositiva": true
-}
+}<br><br>
 
 
 #### POST /checkins/substancias
@@ -203,7 +203,7 @@ PACIENTE - Registra seus próprios check-ins
   "dataRegistro": "2024-05-08T20:00:00",
   "doses": 1.0,
   "cigarros": 0
-}
+}<br><br>
 
 
 ### Histórico e Relatórios
@@ -219,7 +219,7 @@ PACIENTE - Registra seus próprios check-ins
   "estresse": { "nivelMedio": "MODERADO" },
   "social": { "percentualInteracoesPositivas": 85.0 },
   "substancias": { "mediaDoses": 0.5, "mediaCigarros": 0 }
-}
+}<br><br>
 
 
 ### Erros comuns
