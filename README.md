@@ -228,4 +228,103 @@ PACIENTE - Registra seus próprios check-ins<br><br>
 {
   "campo": "email",
   "mensagem": "não deve ser nulo"
-}
+}<br><br><br>
+
+
+
+
+
+## Diagrama de Entidades (ER)
+
+```mermaid
+erDiagram
+    USUARIOS {
+        BIGINT id PK
+        VARCHAR login
+        VARCHAR senha
+        VARCHAR perfil
+        BOOLEAN ativo
+    }
+
+    MEDICOS {
+        BIGINT id PK
+        VARCHAR nome
+        VARCHAR email
+        VARCHAR crm
+        VARCHAR telefone
+        BOOLEAN ativo
+        BIGINT usuario_id FK
+    }
+
+    PACIENTES {
+        BIGINT id PK
+        VARCHAR nome
+        VARCHAR email
+        VARCHAR cpf
+        DATE data_nascimento
+        VARCHAR telefone
+        BOOLEAN ativo
+        BIGINT medico_id FK
+        BIGINT usuario_id FK
+    }
+
+    CHECKINS_ALIMENTACAO {
+        BIGINT id PK
+        BIGINT paciente_id FK
+        DATETIME data_registro
+        INT refeicoes
+        VARCHAR saciedade
+        DOUBLE hidratacao
+        VARCHAR nivel_acucar
+    }
+
+    CHECKINS_EXERCICIO {
+        BIGINT id PK
+        BIGINT paciente_id FK
+        DATETIME data_registro
+        INT sessoes
+        VARCHAR intensidade
+        DOUBLE duracao_total
+    }
+
+    CHECKINS_SONO {
+        BIGINT id PK
+        BIGINT paciente_id FK
+        DATETIME data_registro
+        DOUBLE horas_dormidas
+        VARCHAR qualidade
+        INT despertares
+    }
+
+    CHECKINS_ESTRESSE {
+        BIGINT id PK
+        BIGINT paciente_id FK
+        DATETIME data_registro
+        VARCHAR nivel_estresse
+    }
+
+    CHECKINS_SOCIAL {
+        BIGINT id PK
+        BIGINT paciente_id FK
+        DATETIME data_registro
+        BOOLEAN interacao_positiva
+    }
+
+    CHECKINS_SUBSTANCIAS {
+        BIGINT id PK
+        BIGINT paciente_id FK
+        DATETIME data_registro
+        DOUBLE doses
+        INT cigarros
+    }
+
+    USUARIOS ||--o| MEDICOS : "possui"
+    USUARIOS ||--o| PACIENTES : "possui"
+    MEDICOS ||--o{ PACIENTES : "acompanha"
+    PACIENTES ||--o{ CHECKINS_ALIMENTACAO : "registra"
+    PACIENTES ||--o{ CHECKINS_EXERCICIO : "registra"
+    PACIENTES ||--o{ CHECKINS_SONO : "registra"
+    PACIENTES ||--o{ CHECKINS_ESTRESSE : "registra"
+    PACIENTES ||--o{ CHECKINS_SOCIAL : "registra"
+    PACIENTES ||--o{ CHECKINS_SUBSTANCIAS : "registra"
+```
